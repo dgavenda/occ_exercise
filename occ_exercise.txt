@@ -1,0 +1,27 @@
+Some notes/explanations/etc.
+
+- Another department will want to use this utility as well, but they have a much more complex name scoring algorithm.
+
+  Created an interface called ScoringAlgorithm.  This will allow them to implement their algorithm.  Ideally, we'd be 
+  able to switch or use a specific algorithm without a code change.  Either in a config file or a param passed in.  
+  
+  
+- The scoring feature will be added to the company's intranet web-app allowing employees to upload and score files from their desktop
+
+  If we are reading from the intranet, we'd need to give the option to read from an InputStream/Channel/etc. This would need a change 
+  in the InputFileReader class and open a socket waiting for data to come in.  Then, read the data, calculate the results and return the value.     
+ 
+  
+- The company will be switching from first names only to both first and last name in the file
+  I added options for both (first name only and first/last name). 
+  
+ 
+This is single threaded but if latency is a concern, we may be able to use multithreading to speed this up assuming we have idle cores.     
+  
+  
+  
+Libraries I used:
+- junit 4.9 
+- slf4j-api 1.7.25 
+- slf4j-simple 1.7.25 
+ 
