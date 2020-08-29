@@ -39,12 +39,12 @@ public class LetterHelper {
 	}
 	
 	public int getValue(char c) {
-		Integer val = map.get(c);
-		if (val == null) {
-			return 0;
-		} else {
-			return val;
-		}		
-	}
+		Optional<Integer> optValue = Optional.ofNullable(map.get(c));
 
+		if (optValue.isPresent()) {
+			return optValue.get();
+		} else {
+			return 0;
+		}
+	}
 }
