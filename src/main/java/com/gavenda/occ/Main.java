@@ -5,8 +5,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.gavenda.occ.calculation.CalculationImplSimpleFirstName;
-
+import com.gavenda.occ.scoring.ScoringMethodSimpleFirstNameOnly;
+import com.gavenda.occ.scoring.ScoringMethodSimpleFirstNameAndLastName;
 
 public class Main {
 	
@@ -33,8 +33,8 @@ public class Main {
 		List<String> nameList = reader.read();
 
 		//change implementation here, could be in a application config file or by an added param
-//		int total = new CalculationImplFirstAndLastName(new ScoringAlgorithmFirstAndLastNameLocationMultiply(letterHelper, firstLastNameHelper)).calculate(nameList);
-		int total = new CalculationImplSimpleFirstName(letterHelper).calculate(nameList);
+//		int total = new ScoringMethodSimpleFirstNameAndLastName(letterHelper).score(nameList);
+		int total = new ScoringMethodSimpleFirstNameOnly(letterHelper).score(nameList);
 		logger.info("total:{}", total);
 	}
 }

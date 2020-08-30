@@ -17,7 +17,8 @@ Some notes/explanations/etc.
   
  
 This is single threaded but if latency is a concern, we may be able to use multithreading to speed this up assuming we have idle cores.     
-  
+   
+Assuming if using the first and last name option, the name must have both names otherwise it's skipped and not counted.     
   
   
 Libraries I used:

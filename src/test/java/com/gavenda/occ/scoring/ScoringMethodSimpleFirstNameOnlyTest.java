@@ -1,4 +1,4 @@
-package com.gavenda.occ.calculation;
+package com.gavenda.occ.scoring;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,20 +10,19 @@ import org.junit.Test;
 import com.gavenda.occ.LetterHelper;
 
 
-public class CalculationImplSimpleFirstNameTest {
+public class ScoringMethodSimpleFirstNameOnlyTest {
 
 	@Test
 	public void testSimpleFirstName() {
-		CalculationImplSimpleFirstName c = new CalculationImplSimpleFirstName(new LetterHelper());
+		ScoringMethod scoringMethod = new ScoringMethodSimpleFirstNameOnly(new LetterHelper());
 		
 		List<String> nameList = Arrays.asList("MARY");
-		assertEquals(57, c.calculate(nameList));
+		assertEquals(57, scoringMethod.score(nameList));
 		
 		List<String> nameList2 = Arrays.asList("BARB");
-		assertEquals(23, c.calculate(nameList2));
-		
+		assertEquals(23, scoringMethod.score(nameList2));
 		
 		List<String> nameList3 = Arrays.asList("MARY", "BARB");
-		assertEquals(137, c.calculate(nameList3));
+		assertEquals(137, scoringMethod.score(nameList3));
 	}
 }

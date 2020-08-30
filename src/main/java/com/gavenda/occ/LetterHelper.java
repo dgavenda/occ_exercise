@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class LetterHelper {
 	
-	//could make this an unmodifiable map 
+	//could make this an unmodifiable map and possibly a singleton
 	private static final ConcurrentHashMap<Character, Integer> map = new ConcurrentHashMap<>();
 	
 	static {
