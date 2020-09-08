@@ -22,7 +22,7 @@ public class ScoringMethodSimpleFirstNameAndLastName extends ScoringMethodSimple
 	
 	
 	@Override
-	public int score(List<String> names) {
+	public List<String> sort(List<String> names) {
 		//converting to FirstLastName object to sort
 		List<FirstAndLastName> firstAndLastNamesList = new FirstLastNameParser().convert(names);
 		
@@ -36,8 +36,7 @@ public class ScoringMethodSimpleFirstNameAndLastName extends ScoringMethodSimple
 		for (FirstAndLastName firstAndLastName : firstAndLastNamesList) {
 			firstLastNameListAsString.add(firstAndLastName.getFirstName() + " " + firstAndLastName.getLastName());
 		}
-		
-		return calculation(firstLastNameListAsString);
+		return firstLastNameListAsString;
 	}
 
 }

@@ -16,11 +16,10 @@ public class ScoringMethodSimpleFirstNameOnly extends ScoringMethodSimple {
 	}
 	
 	@Override
-	public int score(List<String> names) {
+	public List<String> sort(List<String> names) {
 		Collections.sort(names);
-//		logger.debug("First name list: {}", names);
-		
-		return calculation(names);
+		logger.debug("First name list: {}", names);
+		return names;
 	}
 
 }

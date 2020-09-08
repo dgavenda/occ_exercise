@@ -12,7 +12,13 @@ public abstract class ScoringMethodSimple implements ScoringMethod {
 		this.letterHelper = letterHelper;
 	}	
 	
-	protected int calculation(List<String> names) {
+	public final int score(List<String> names) {
+		List<String> sortedNames = sort(names);
+		return calculation(sortedNames);
+		
+	}
+	
+	private final int calculation(List<String> names) {
 		int total = 0;
 		for (int i = 0; i < names.size(); i++) {
 			total += count(names.get(i)) * (i + 1);
@@ -20,15 +26,15 @@ public abstract class ScoringMethodSimple implements ScoringMethod {
 		return total;		
 	}
 	
-	protected int count(String string) {
+	private final int count(String name) {
 		int counter = 0;
 		//calculate first name 
-		char[] fnArr = string.toCharArray();
+		char[] fnArr = name.toCharArray();
 		for (int i = 0; i < fnArr.length; i++) {
 			counter += letterHelper.getValue(fnArr[i]);
 		}
 		return counter;
 	}
 	
-	public abstract int score(List<String> names);
+	public abstract List<String> sort(List<String> names);
 }

@@ -15,7 +15,6 @@ public class Main {
 	private static String filename;
 	
 	private final static LetterHelper letterHelper = new LetterHelper();
-	private final static FirstLastNameParser firstLastNameHelper = new FirstLastNameParser();
 	
 	public static void main(String[] args) {
 		//check for one arg which would be filename
