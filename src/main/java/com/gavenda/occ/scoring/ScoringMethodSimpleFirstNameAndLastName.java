@@ -27,7 +27,8 @@ public class ScoringMethodSimpleFirstNameAndLastName extends ScoringMethodSimple
 		List<FirstAndLastName> firstAndLastNamesList = new FirstLastNameParser().convert(names);
 		
 		//sort the first/last names 
-		Collections.sort(firstAndLastNamesList, new FirstAndLastNameComparator());
+//		Collections.sort(firstAndLastNamesList, new FirstAndLastNameComparator());
+		Collections.sort(firstAndLastNamesList);
 		logger.debug("First and last name list: {}", firstAndLastNamesList);
 		
 		//converting back to string.  

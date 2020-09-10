@@ -1,6 +1,6 @@
 package com.gavenda.occ;
 
-public class FirstAndLastName {
+public class FirstAndLastName implements Comparable<FirstAndLastName> {
 	
 	private final String firstName;
 	private final String lastName;
@@ -56,5 +56,18 @@ public class FirstAndLastName {
 		} else if (!lastName.equals(other.lastName))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(FirstAndLastName firstLastName) {
+		//look at last name first 
+		int value = getLastName().compareTo(firstLastName.getLastName());
+		
+		if (value == 0) {
+			//if same last name, look at first name 
+			return getFirstName().compareTo(firstLastName.getFirstName());
+		} else {
+			return value;
+		}	
 	}	
 }
